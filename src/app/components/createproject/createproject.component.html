@@ -1,0 +1,20 @@
+<H1>
+    Create project component
+</H1>
+    <div class="example-label">add a new project  </div>
+      <button mat-raised-button color="primary" (click)="openDialog()">open form</button>
+      <h1>
+          list of projects
+      </h1>
+  <div style="margin: 20px;max-width: fit-content;">
+    <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+      
+      <p>
+        Option selected: {{shoes.selectedOptions.selected[0]?.value}}
+      </p>
+
+  </div>
