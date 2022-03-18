@@ -23,12 +23,13 @@ export class SelectmembreComponent implements OnInit {
   constructor(private eservice:MembresService) {}
 
   ngOnInit() {
-    this. getMembres()
+    this.getMembres()
 
   }
 
   getMembres(){
     this.eservice.getData().subscribe(res=>{
+      console.log(res);
       this.dataSource=new MatTableDataSource(res)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort= this.sort

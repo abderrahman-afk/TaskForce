@@ -11,6 +11,6 @@ export class MembresService {
 
   constructor(private http:HttpClient) { }
   getData(){
-    return  this.http.get<any[]>("http://localhost:8080/gadget/all");
+    return  this.http.get<any[]>("http://localhost:8080/Users/all");
   }
 }
