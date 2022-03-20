@@ -44,11 +44,11 @@ export class DialogComponent implements OnInit {
   ];
   constructor(fb: FormBuilder,private service:MembresService) {
     this.projectForm = fb.group({
-      title: [''],
-      departement: [''],
-      description: [''],
-      startdate: [''],
-      enddate: [''],
+      projectTitle: [''],
+      projectDepartement: [''],
+      projectDescription: [''],
+      projectStartdate: [''],
+      projectDeadline: [''],
     });
   }
 
@@ -58,6 +58,15 @@ export class DialogComponent implements OnInit {
     console.log('heye ya haj', x);
     this.project = x;
     console.log('sayeb alina ya project ', this.project);
+    this.service.addProject(x).subscribe({
+      next:(res)=>{
+        alert("product sucess")
+        this.projectForm.reset
+      },
+      error:()=>{
+        alert("error while adding product")
+      }}
+    )
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

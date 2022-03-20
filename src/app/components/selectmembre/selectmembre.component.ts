@@ -15,7 +15,7 @@ import { MembresService } from 'src/app/service/membres.service';
   templateUrl: './selectmembre.component.html',
 })
 export class SelectmembreComponent implements OnInit {
-  displayedColumns: string[] = ['productName', 'category', 'comment', 'date','freshness','price','add participant'];
+  displayedColumns: string[] = ['id', 'nom', 'prenom', 'add participant'];
   dataSource!: MatTableDataSource<any>;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -23,16 +23,27 @@ export class SelectmembreComponent implements OnInit {
   constructor(private eservice:MembresService) {}
 
   ngOnInit() {
-    this.getMembres()
+    this.getMembres();
+    this.getProject()
 
   }
 
   getMembres(){
     this.eservice.getData().subscribe(res=>{
       console.log(res);
+      
       this.dataSource=new MatTableDataSource(res)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort= this.sort
+      
+    })
+  }
+
+  getProject(){
+    this.eservice.getProjects().subscribe(res=>{
+      console.log("projects",res);
+      console.log("participants",res[0].enrolledusers);
+
       
     })
   }

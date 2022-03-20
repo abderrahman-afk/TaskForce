@@ -12,21 +12,21 @@ align-items: stretch !important; ">
     <td>
         <mat-form-field style="width: 200% !important;"class="example-full-width" appearance="fill">
             <mat-label>Project Title</mat-label>
-            <input matInput formControlName="title">
+            <input matInput formControlName="projectTitle">
         </mat-form-field>
     </td>
     <tr>
     <td>
         <mat-form-field style="width: 200% !important;" appearance="fill">
             <mat-label>departement</mat-label>
-            <mat-select  required  formControlName="departement">
+            <mat-select  required  formControlName="projectDepartement">
                 <mat-option>--</mat-option>
                 <mat-option *ngFor="let animal of departement" [value]="animal">
                     {{animal.name}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="projectForm.controls['departement']">Please choose a departement</mat-error>
-            <mat-hint>{{projectForm.controls['departement'].value?.sound}}</mat-hint>
+            <mat-error *ngIf="projectForm.controls['projectDepartement']">Please choose a departement</mat-error>
+            <mat-hint>{{projectForm.controls['projectDepartement'].value?.sound}}</mat-hint>
         </mat-form-field>
     </td>
 </tr>
@@ -34,7 +34,7 @@ align-items: stretch !important; ">
         <td >
             <mat-form-field style="height: 200% !important;width: 200% !important;" class="example-full-width" appearance="fill">
                 <mat-label>project description</mat-label>
-                <textarea cols="30" rows="10" formControlName="description" matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+                <textarea cols="30" rows="10" formControlName="projectDescription" matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
             </mat-form-field>
         </td>
     </tr>
@@ -45,8 +45,8 @@ align-items: stretch !important; ">
                 <mat-form-field appearance="fill" style="width: 150% !important;">
                     <mat-label>Enter a date range</mat-label>
                     <mat-date-range-input [rangePicker]="picker" >
-                      <input matStartDate placeholder="Start date" formControlName='startdate'>
-                      <input matEndDate placeholder="End date" formControlName='enddate'>
+                      <input matStartDate placeholder="Start date" formControlName='projectStartdate'>
+                      <input matEndDate placeholder="End date" formControlName='projectDeadline'>
                     </mat-date-range-input>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-date-range-picker #picker></mat-date-range-picker>

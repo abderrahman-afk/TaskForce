@@ -1,0 +1,29 @@
+<h2>
+    project details
+</h2>
+<ul>
+    <li>
+        projectTitle : 
+        {{projects.projectTitle}}
+    </li>
+    <li >
+        projectDepartement : 
+        {{projects.projectDepartement}}
+    </li>
+    <li >
+        projectDescription : 
+        {{projects.projectDescription}}
+    </li>
+    <li >
+       start :  {{projects.projectStartdate}} deadline : {{projects.projectDeadline}}
+    </li>
+</ul>
+<h2>
+    participants
+</h2>
+<ul>
+    <li *ngFor="let o of projects.enrolledusers" [value]="o">
+        {{o.nom}} 
+    </li>
+
+</ul>

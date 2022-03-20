@@ -26,6 +26,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatListModule} from '@angular/material/list';
+import { DisplayProjectComponent } from './components/display-project/display-project.component';
 
 
 
@@ -41,7 +42,8 @@ import {MatListModule} from '@angular/material/list';
     CreateprojectComponent,
     HeaderComponent,
     DialogComponent,
-    SelectmembreComponent
+    SelectmembreComponent,
+    DisplayProjectComponent
   ],
   imports: [
     BrowserModule,
