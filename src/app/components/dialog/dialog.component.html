@@ -1,5 +1,5 @@
 <div style="margin: auto !important;
-width: 60% !important;
+width: 80% !important;
 padding: 10px !important;
 align-items: stretch !important; ">
 
@@ -22,11 +22,10 @@ align-items: stretch !important; ">
             <mat-select  required  formControlName="projectDepartement">
                 <mat-option>--</mat-option>
                 <mat-option *ngFor="let animal of departement" [value]="animal">
-                    {{animal.name}}
+                    {{animal}}
                 </mat-option>
             </mat-select>
             <mat-error *ngIf="projectForm.controls['projectDepartement']">Please choose a departement</mat-error>
-            <mat-hint>{{projectForm.controls['projectDepartement'].value?.sound}}</mat-hint>
         </mat-form-field>
     </td>
 </tr>

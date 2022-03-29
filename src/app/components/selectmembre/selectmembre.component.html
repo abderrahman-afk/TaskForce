@@ -1,35 +1,45 @@
-<div style="margin-bottom: 20PX;margin-top: 20PX; ">
+<div class="example-spacer ">
 
 
 <mat-form-field appearance="standard" style="width: 80% !important;">
-  <mat-label>Filter</mat-label>
+  <mat-label> search participant</mat-label>
   <input  matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
 </mat-form-field>
 
-<div class="mat-elevation-z8" >
-  <table mat-table [dataSource]="dataSource" matSort style="width: 100% !important;">
+<div class="mat-elevation-z8"  >
+  <table mat-table [dataSource]="dataSource" matSort style="width: 100% !important;" >
 
-    <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <th  mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
-      <td  mat-cell *matCellDef="let row"> {{row.id}} </td>
-    </ng-container>
+     
 
     <!-- Progress Column -->
     <ng-container matColumnDef="nom">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> nom </th>
-      <td mat-cell *matCellDef="let row"> {{row.nom}}</td>
+      <td mat-cell *matCellDef="let row" style=" padding: 10px;"> {{row.nom}}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="prenom">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> prenom </th>
-      <td mat-cell *matCellDef="let row"> {{row.prenom}} </td>
+      <td mat-cell *matCellDef="let row" style=" padding: 10px;"> {{row.prenom}} </td>
     </ng-container>
+       <!-- Name Column -->
+       <ng-container matColumnDef="speciality">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> speciality </th>
+        <td mat-cell *matCellDef="let row" style=" padding: 10px;"> {{row.speciality}} </td>
+      </ng-container>
+         <!-- Name Column -->
+    <ng-container matColumnDef="departement">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> departement </th>
+      <td mat-cell *matCellDef="let row" style=" padding: 10px;"> {{row.departement}} </td>
+    </ng-container>
+       <!-- Name Column -->
+       
 
     <ng-container matColumnDef="add participant">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> add participant </th>
-      <td mat-cell *matCellDef="let row"> <button (click)="addParticipant(row)" mat-raised-button color="primary">add participant </button></td>
+      <td mat-cell *matCellDef="let row" style=" padding: 10px;"> 
+         <button mat-icon-button (click)="addParticipant(row,idp,user.id)" style="  color: rgb(183,214,252);"><mat-icon>add_circle</mat-icon></button>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -41,6 +51,6 @@
     </tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[3, 5, 10, 20]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" aria-label="Select page of users"></mat-paginator>
 </div>
 </div>

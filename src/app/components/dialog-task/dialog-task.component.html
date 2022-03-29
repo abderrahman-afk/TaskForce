@@ -1,0 +1,135 @@
+<div style="margin: auto !important;
+padding: 10px !important;
+align-items: stretch !important; ">
+
+<form [formGroup]="TaskForm" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Company name</mat-label>
+        <input matInput disabled value="SopraHR">
+    </mat-form-field>
+    <img src="../../../assets/images/logo-sopra-hr-software-20150410-155337.jpg" width="50%" alt="">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>
+           Project name
+        </mat-label>
+        <input matInput disabled [value]="Project.projectTitle">
+    </mat-form-field>
+    <td>
+        <mat-form-field style="width: 200% !important;"class="example-full-width" appearance="fill">
+            <mat-label>Task Title</mat-label>
+            <input matInput formControlName="title">
+            <input matInput formControlName="projectId" [hidden]="true">
+        </mat-form-field>
+    </td>
+    <tr>
+    <td>
+        <mat-form-field style="width: 200% !important;" appearance="fill">
+            <mat-label>speciality</mat-label>
+            <mat-select  required  formControlName="speciality">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let animal of departement" [value]="animal">
+                    {{animal}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="TaskForm.controls['speciality']">Please choose a departement</mat-error>
+        </mat-form-field>
+    </td>
+</tr>
+    <tr>
+        <td >
+            <mat-form-field style="height: 200% !important;width: 200% !important;" class="example-full-width" appearance="fill">
+                <mat-label>task description</mat-label>
+                <textarea cols="30" rows="10" formControlName="description" matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+            </mat-form-field>
+        </td>
+    </tr>
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+           
+            <td>
+                <mat-form-field appearance="fill" style="width: 150% !important;">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker" >
+                      <input matStartDate placeholder="Start date" formControlName='startdate'>
+                      <input matEndDate placeholder="End date" formControlName='deadline'>
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+            </td>
+           
+        </tr>
+     <tr>
+            <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose a max start</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName='maxStart'>
+                <mat-datepicker-toggle matSuffix [for]="picker2" >
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Choose a max finish date</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName='maxFinish'>
+                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </td>
+        </tr>  
+        <tr>
+            <td>
+                <mat-form-field   appearance="fill">
+                    <mat-label>Priority</mat-label>
+                    <mat-select  required  formControlName="priority">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let Priority of Priority" [value]="Priority">
+                            {{Priority}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="TaskForm.controls['Priority']">Please choose a departement</mat-error>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <tr>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    
+                    <!-- <mat-form-field style="width: 100% !important;" appearance="standard" >
+                        <input matInput type="text" [matAutocomplete]="auto"/>
+                        <mat-autocomplete #auto=""matAutocomplete>
+                            <mat-option *ngFor="let item of membres "  [value]="item">
+                                {{item.title}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field> -->
+                    <!-- <app-selectmembre></app-selectmembre>
+                     -->
+
+                    
+                </td>
+                
+                <tr>
+            <!-- <td >
+                 <DIV style="  display: grid;
+                 grid-template-columns: repeat(4, 1fr);
+                 gap: 10px;width: fit-content;">
+                    <mat-card *ngFor="let m of ['abdou','sara','safa','ahmed','sara','safa','ahmed','sara','safa','ahmed','sara','safa','ahmed','sara','safa','ahmed']"
+                        style="height: fit-content;width:fit-content; float: right;">
+                        {{m}}
+                    </mat-card>
+                </DIV>
+            </td> -->
+        </tr>
+        </table>
+    </tr>
+    <TR><TD style="height: 10px;"></TD></TR>
+    <button mat-raised-button color="primary" style="text-align: right !important;" (click)="submit()">Submit</button>
+</form>
+</div>

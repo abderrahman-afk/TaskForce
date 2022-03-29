@@ -6,6 +6,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { MembresService } from 'src/app/service/membres.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from 'src/app/service/project.service';
 /**
  * @title Option groups autocomplete
  */
@@ -15,16 +17,21 @@ import { MembresService } from 'src/app/service/membres.service';
   templateUrl: './selectmembre.component.html',
 })
 export class SelectmembreComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nom', 'prenom', 'add participant'];
+  displayedColumns: string[] = [ 'nom', 'prenom','speciality',
+  'departement', 'add participant'];
   dataSource!: MatTableDataSource<any>;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private eservice:MembresService) {}
+  idp:any;
+  user:any={}
+  constructor(private eservice:MembresService,private service:ProjectService,private activatedroute:ActivatedRoute,private router : Router) {}
 
   ngOnInit() {
+    this.idp=this.activatedroute.snapshot.paramMap.get('id');
+    console.log("this is the id ",this.idp);
     this.getMembres();
-    this.getProject()
+   
 
   }
 
@@ -38,18 +45,31 @@ export class SelectmembreComponent implements OnInit {
       
     })
   }
+ 
 
-  getProject(){
-    this.eservice.getProjects().subscribe(res=>{
-      console.log("projects",res);
-      console.log("participants",res[0].enrolledusers);
-
-      
-    })
-  }
-  addParticipant(x:any){
+ 
+  addParticipant(x:any,idproject:any,iduser:any){
+   console.log(this.idp);
+   
+   
     console.log("parpar",x);
+    this.user=x;
+   console.log(this.user.id);
+
+    this.service.enrollUser(this.user,this.idp,this.user.id).subscribe(
+      res=>{
+        console.log("projects",res);
+      }
+    )
     
+    this.reloadCurrentRoute()
+  }
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+        console.log(currentUrl);
+    });
   }
 
   applyFilter(event: Event) {

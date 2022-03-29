@@ -1,0 +1,57 @@
+li{
+    font-size:large;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .item {
+    padding: 10px;
+   
+  }
+ .push-right {
+     top: 0;
+  margin-left: auto;
+  margin-right: 5px;
+}
+.example-small-box, .example-large-box {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.example-small-box {
+  min-height: 100px;
+  min-width: 200px;
+  max-height: max-content;
+  max-width: max-content;
+}
+
+.example-large-box {
+  min-height: 300px;
+  min-width: 300px;
+  max-height: max-content;
+  max-width: 40em;
+}
+.titlefont{
+  font-family: cursive;
+  font-size: 3em;
+}
+.subtitlefont{
+  font-family: cursive;
+  font-size: 1.5em;
+}
+.lowpriority{
+  background-color: rgb(102, 235, 120);
+}
+.highpriority{
+  background-color: rgb(247, 90, 90);
+}
+.mediumpriority{
+  background-color: rgb(252, 255, 103);
+}

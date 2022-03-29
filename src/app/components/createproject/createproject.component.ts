@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { MembresService } from 'src/app/service/membres.service';
+import { ProjectService } from 'src/app/service/project.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
 
@@ -11,10 +11,14 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./createproject.component.css']
 })
 export class CreateprojectComponent implements OnInit {
+  centered = true;
+  disabled = false;
+  unbounded = false;
 
-  constructor(public dialog: MatDialog,private service : MembresService,private router:Router) {}
+  radius!: number;
+  color!: string;
+  constructor(public dialog: MatDialog,private service : ProjectService,private router:Router) {}
 
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   projects !: any[];
   ngOnInit(): void {
     this.getProejcts();
@@ -40,14 +44,30 @@ export class CreateprojectComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent,{
-      width:'60em',
+      width:'50em',
       maxWidth:'900PX',
       height:'80%'
+    }).afterClosed().subscribe(val=>{
+      if(val=="saved"){
+        this.getProejcts()
+      console.log(`Dialog result: ${val}`);
+
+      }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    
+  }
+  deleteproject(id:number){
+    this.service.deleteProject(id).subscribe({
+      next:(res)=>{
+        alert("product deleted successfully")
+        this.getProejcts();
+      },
+      error:()=>{
+        alert("error while deleting")
+      }
+    })
+
   }
 
 }

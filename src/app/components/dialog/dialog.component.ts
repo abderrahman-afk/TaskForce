@@ -5,7 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MembresService } from 'src/app/service/membres.service';
+import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProjectService } from 'src/app/service/project.service';
 
 @Component({
   selector: 'app-dialog',
@@ -18,9 +21,10 @@ export class DialogComponent implements OnInit {
   membres:any;
 
   departement = [
-    { name: 'R&D', sound: 'Woof!' },
-    { name: 'CS', sound: 'Meow!' },
-    { name: 'Prodop', sound: 'Moo!' },
+   'R&D france' ,
+      'PRODOPS' ,
+    'R&D int',
+    'CS'
   ];
   optionss=["abdou","sam","abdalah"];
   dataSource: any = [
@@ -42,7 +46,8 @@ export class DialogComponent implements OnInit {
     
      
   ];
-  constructor(fb: FormBuilder,private service:MembresService) {
+  constructor(fb: FormBuilder,private service:ProjectService,private membreservice:MembresService,private matDialogRef:MatDialogRef<DialogComponent>,private router:Router) {
+     
     this.projectForm = fb.group({
       projectTitle: [''],
       projectDepartement: [''],
@@ -62,6 +67,7 @@ export class DialogComponent implements OnInit {
       next:(res)=>{
         alert("product sucess")
         this.projectForm.reset
+        this.matDialogRef.close("saved")
       },
       error:()=>{
         alert("error while adding product")
@@ -78,7 +84,7 @@ export class DialogComponent implements OnInit {
   }
 
   getMembres(){
-    this.service.getData().subscribe(res=>{
+    this.membreservice.getData().subscribe(res=>{
       this.membres=res;
       console.log("fsfsfzs",this.membres);
       

@@ -1,12 +1,37 @@
 table {
     width: 100%;
+    border-radius: 20%;
+    
   }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
   
   .mat-form-field {
     font-size: 14px;
     width: 100%;
+  
   }
   
   td, th {
-    width: 100%  !important;;
+    width: 25%  !important;
+   
   }
+  .opacity {
+    opacity: 0.3;
+  }
+  :hover .opacity{
+    opacity: 1;
+  }
+  .classname:active {
+    /* animation css */
+    -webkit-animation: alternate;
+    animation: alternate;
+}
+.classname:focus {
+  /* animation css */
+  -webkit-animation: beat 1s ease-in-out backwards;
+  animation: beat 1s ease-in-out backwards;
+  color: rgb(253, 0, 0);
+}

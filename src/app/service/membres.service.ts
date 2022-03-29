@@ -13,14 +13,4 @@ export class MembresService {
   getData(){
     return  this.http.get<any[]>("http://localhost:8081/Users/all");
   }
-  getProjects(){
-    return this.http.get<any[]>("http://localhost:8081/project/all");
-  }
-  
-  getProjectsById(id:any){
-    return this.http.get<any[]>(`http://localhost:8081/project/find/${id}`);
-  }
-  addProject(data:any){
-    return this.http.post<any>('http://localhost:8081/project/addproject',data);
-  }
 }

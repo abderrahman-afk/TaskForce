@@ -27,6 +27,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatListModule} from '@angular/material/list';
 import { DisplayProjectComponent } from './components/display-project/display-project.component';
+import {MatRippleModule} from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatChipsModule} from '@angular/material/chips';
+import { DialogTaskComponent } from './components/dialog-task/dialog-task.component';
+import { DialogAssignTaskComponent } from './components/dialog-assign-task/dialog-assign-task.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -43,7 +50,9 @@ import { DisplayProjectComponent } from './components/display-project/display-pr
     HeaderComponent,
     DialogComponent,
     SelectmembreComponent,
-    DisplayProjectComponent
+    DisplayProjectComponent,
+    DialogTaskComponent,
+    DialogAssignTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,12 @@ import { DisplayProjectComponent } from './components/display-project/display-pr
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatListModule
+    MatListModule,
+    MatRippleModule,
+    MatTabsModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MatSnackBarModule
     
   ],
   providers: [],
