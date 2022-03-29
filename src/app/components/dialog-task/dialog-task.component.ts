@@ -28,7 +28,7 @@ export class DialogTaskComponent implements OnInit {
   membres: any;
   formvalue: any;
 
-  departement = [,'ANGULAR','JIRA','JAVA','COBOL','SHELL'];
+  departement = ['ANGULAR','JIRA','JAVA','COBOL','SHELL'];
   optionss = ['abdou', 'sam', 'abdalah'];
   Priority = ['high', 'low', 'medium'];
   dataSource: any = [];

@@ -19,7 +19,7 @@ export class DialogAssignTaskComponent implements OnInit {
   projectId!:any;
   taskdetails!:any;
   updateTaskForm :FormGroup;
-  departement = [,'ANGULAR','JIRA','JAVA','COBOL','SHELL'];
+  departement = ['ANGULAR','JIRA','JAVA','COBOL','SHELL'];
   dataSourcetable: any = [];
   formvalue: any;
   task: any = {};
