@@ -44,13 +44,13 @@ export class DialogTaskComponent implements OnInit {
     private router: Router
   ) {
     this.TaskForm = fb.group({
-      title: [''],
+      title: ['',Validators.required],
       projectId: [''],
-      description: [''],
+      description: ['',Validators.required],
       speciality: [''],
       priority: [''],
-      startdate: [''],
-      deadline: [''],
+      startdate: ['',Validators.required],
+      deadline: ['',Validators.required],
       maxStart: [''],
       maxFinish: [''],
     });

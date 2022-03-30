@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild ,AfterViewInit} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
 import { ProjectService } from 'src/app/service/project.service';
@@ -39,13 +39,13 @@ export class DialogAssignTaskComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: {taskId: any,projectId:any,taskdetails:any},private _snackBar: MatSnackBar,private _liveAnnouncer: LiveAnnouncer,fb: FormBuilder,private matDialogRef: MatDialogRef<DialogAssignTaskComponent>,private taskservice: TaskService,private projectservice:ProjectService) { 
 
     this.updateTaskForm = fb.group({
-      title: [''],
+      title: ['',Validators.required],
       projectId: [''],
-      description: [''],
+      description: ['',Validators.required],
       speciality: [''],
       priority: [''],
-      startdate: [''],
-      deadline: [''],
+      startdate: ['',Validators.required],
+      deadline: ['',Validators.required],
       maxStart: [''],
       maxFinish: [''],
     });

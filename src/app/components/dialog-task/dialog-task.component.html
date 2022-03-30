@@ -17,7 +17,9 @@ align-items: stretch !important; ">
     <td>
         <mat-form-field style="width: 200% !important;"class="example-full-width" appearance="fill">
             <mat-label>Task Title</mat-label>
-            <input matInput formControlName="title">
+            <input matInput formControlName="title" required>
+            <mat-error *ngIf="TaskForm.controls['title']">Please choose a title</mat-error>
+
             <input matInput formControlName="projectId" [hidden]="true">
         </mat-form-field>
     </td>
@@ -25,13 +27,12 @@ align-items: stretch !important; ">
     <td>
         <mat-form-field style="width: 200% !important;" appearance="fill">
             <mat-label>speciality</mat-label>
-            <mat-select  required  formControlName="speciality">
+            <mat-select    formControlName="speciality">
                 <mat-option>--</mat-option>
                 <mat-option *ngFor="let animal of departement" [value]="animal">
                     {{animal}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="TaskForm.controls['speciality']">Please choose a departement</mat-error>
         </mat-form-field>
     </td>
 </tr>
@@ -39,7 +40,9 @@ align-items: stretch !important; ">
         <td >
             <mat-form-field style="height: 200% !important;width: 200% !important;" class="example-full-width" appearance="fill">
                 <mat-label>task description</mat-label>
-                <textarea cols="30" rows="10" formControlName="description" matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+                <textarea cols="30" rows="10" required formControlName="description" matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+                <mat-error *ngIf="TaskForm.controls['description']">Please choose a description</mat-error>
+        
             </mat-form-field>
         </td>
     </tr>
@@ -55,6 +58,8 @@ align-items: stretch !important; ">
                     </mat-date-range-input>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="TaskForm.controls['startdate']">Please choose a Range</mat-error>
+
                   </mat-form-field>
             </td>
            
@@ -85,13 +90,13 @@ align-items: stretch !important; ">
             <td>
                 <mat-form-field   appearance="fill">
                     <mat-label>Priority</mat-label>
-                    <mat-select  required  formControlName="priority">
+                    <mat-select    formControlName="priority">
                         <mat-option>--</mat-option>
                         <mat-option *ngFor="let Priority of Priority" [value]="Priority">
                             {{Priority}}
                         </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="TaskForm.controls['Priority']">Please choose a departement</mat-error>
+                 
                 </mat-form-field>
             </td>
         </tr>
@@ -130,6 +135,6 @@ align-items: stretch !important; ">
         </table>
     </tr>
     <TR><TD style="height: 10px;"></TD></TR>
-    <button mat-raised-button color="primary" style="text-align: right !important;" (click)="submit()">Submit</button>
+    <button mat-raised-button color="primary" style="text-align: right !important;" (click)="submit()" [disabled]="!TaskForm.valid">Submit</button>
 </form>
 </div>

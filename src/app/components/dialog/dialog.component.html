@@ -13,6 +13,8 @@ align-items: stretch !important; ">
         <mat-form-field style="width: 200% !important;"class="example-full-width" appearance="fill">
             <mat-label>Project Title</mat-label>
             <input matInput formControlName="projectTitle">
+            <mat-error *ngIf="projectForm.controls['projectTitle']">Please choose a projectTitle</mat-error>
+
         </mat-form-field>
     </td>
     <tr>
@@ -34,6 +36,8 @@ align-items: stretch !important; ">
             <mat-form-field style="height: 200% !important;width: 200% !important;" class="example-full-width" appearance="fill">
                 <mat-label>project description</mat-label>
                 <textarea cols="30" rows="10" formControlName="projectDescription" matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+                <mat-error *ngIf="projectForm.controls['projectDescription']">Please choose a projectDescription</mat-error>
+            
             </mat-form-field>
         </td>
     </tr>
@@ -49,6 +53,8 @@ align-items: stretch !important; ">
                     </mat-date-range-input>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="projectForm.controls['projectStartdate']">Please choose a Range</mat-error>
+
                   </mat-form-field>
             </td>
            
@@ -88,6 +94,6 @@ align-items: stretch !important; ">
         </table>
     </tr>
     <TR><TD style="height: 10px;"></TD></TR>
-    <button mat-raised-button color="primary" style="text-align: right !important;" (click)="submit(projectForm.value)">Submit</button>
+    <button mat-raised-button color="primary" style="text-align: right !important;" (click)="submit(projectForm.value)" [disabled]="!projectForm.valid">Submit</button>
 </form>
 </div>

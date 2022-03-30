@@ -49,11 +49,11 @@ export class DialogComponent implements OnInit {
   constructor(fb: FormBuilder,private service:ProjectService,private membreservice:MembresService,private matDialogRef:MatDialogRef<DialogComponent>,private router:Router) {
      
     this.projectForm = fb.group({
-      projectTitle: [''],
-      projectDepartement: [''],
-      projectDescription: [''],
-      projectStartdate: [''],
-      projectDeadline: [''],
+      projectTitle: ['',Validators.required],
+      projectDepartement: ['',Validators.required],
+      projectDescription: ['',Validators.required],
+      projectStartdate: ['',Validators.required],
+      projectDeadline: ['',Validators.required],
     });
   }
 
