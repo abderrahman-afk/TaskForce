@@ -30,7 +30,7 @@ export class DialogTaskComponent implements OnInit {
 
   departement = ['ANGULAR','JIRA','JAVA','COBOL','SHELL'];
   optionss = ['abdou', 'sam', 'abdalah'];
-  Priority = ['high', 'low', 'medium'];
+  Priority = ['critical', 'nice to have', 'important','medium'];
   dataSource: any = [];
   constructor(
     fb: FormBuilder,

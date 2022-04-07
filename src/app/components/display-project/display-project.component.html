@@ -38,7 +38,7 @@
             <mat-chip
               *ngFor="let o of participants"
               [value]="o"
-              style="background-color: rgb(183, 214, 252)"
+              style="background-color: rgb(183, 214, 252)" (longPress)="fuc()"
             >
               <mat-chip-avatar>
                 <img

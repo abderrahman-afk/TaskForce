@@ -12,26 +12,73 @@
   </div> -->
   <div style="margin-top: 5em;">
 
+<div style="display: flex;
+flex-direction: row; padding:  1rem;flex-shrink: 0;flex-wrap: wrap;">
+  <h1 style="font-size: 48PX;margin-LEFT: 0.52em;font-family: Tahoma   ;">
+    List of projects</h1>
+<button mat-mini-fab color="primary" (click)="openDialog()" style="margin-left: 1em;"><mat-icon>add</mat-icon></button>
 
-  <h1 style="font-size: 48PX;">
-    list of projects
-</h1>
+</div>
   <div style="display: flex;
 	flex-direction: row; padding:  1rem;flex-shrink: 0;flex-wrap: wrap;" >
 
 <mat-card class="example-card" *ngFor="let shoe of projects" style="margin: 10px;"  >
-  <mat-card-title>{{shoe.projectTitle}}</mat-card-title>
-  <mat-card-subtitle>{{shoe.projectDepartement }}</mat-card-subtitle>
-  <mat-card-content>
-    <p>start : {{shoe.projectStartdate|date}} deadline : {{shoe.projectDeadline|date}}</p>
-    <p>   {{shoe.projectDescription }} </p>
+<div style="min-height: 195px;">
+
+  <div style="display: flex;
+	flex-direction: row; " >
+    <div>
+    <img width="60px"   src="../../../assets/images/taskforce logo.svg" alt="" srcset=""> 
+  </div>
+      
+  <div style="margin-left: 3em !important;">
+
+   <mat-card-title id="title"  (click)="displayProject(shoe.projectId)" style=" line-height: 1.2;">{{shoe.projectTitle}}</mat-card-title> 
+ 
+  <mat-card-subtitle>{{shoe.projectDepartement }}</mat-card-subtitle></div>
+</div>
+  <mat-card-content style="padding: 1em;">
+    <p class="three-dots">   {{shoe.projectDescription }} </p>
   </mat-card-content>
    
+ </div>
+  <mat-divider></mat-divider>
+  <mat-card-actions style="bottom: 0PX !important;">
+   <div style="display: flex;
+   flex-direction: row;  ">
+    <DIV >
+    <h5 class="badge rounded-pill bg-success">Success</h5></DIV>
+    <div style="text-align: center;align-items: center;margin-left: 3em !important;">
+
+     <mat-icon>date_range</mat-icon>   {{shoe.projectDeadline|date}}
+    </div>
+    <div style="text-align: center;align-items: center;margin-left: 1em !important;">
+    <mat-icon> person_pin</mat-icon> 22 DAYS 
+    </div>
+ <DIV>
 
  
-  <mat-card-actions style="bottom: 0PX !important;">
-    <button (click)="displayProject(shoe.projectId)" mat-button>see</button>
-    <button mat-button (click)="deleteproject(shoe.projectId)" >delete</button>
+
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"  style="position: absolute;right: 0%;">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>archive</mat-icon>
+        <span>Archive Project</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>edit</mat-icon>
+        <span>Edit Project</span>
+      </button>
+      <button mat-menu-item (click)="deleteproject(shoe.projectId)" >
+        <span > <mat-icon>delete</mat-icon>
+       Delete Project</span>
+      </button>
+    </mat-menu>
+  </DIV>
+  </div>
   </mat-card-actions>
  
 </mat-card> 

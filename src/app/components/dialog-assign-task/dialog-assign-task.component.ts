@@ -127,7 +127,9 @@ export class DialogAssignTaskComponent implements OnInit {
       this.assignedUsers=res
       console.log("les assignes ",this.assignedUsers);
     this.getErolledUsersToTask(this.taskId)
-    this._snackBar.open("user enrolled","Dismiss")
+    this._snackBar.open("user enrolled","Dismiss",{
+      duration:2000
+    })
       
       
     })

@@ -1,6 +1,6 @@
  
 div { 
-    background: url('./../assets/images/BACKGROUD.png') no-repeat center center fixed; 
+    background-color: rgb(245,245,249); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

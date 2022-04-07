@@ -25,7 +25,7 @@ export class DisplayProjectComponent implements OnInit {
   enrolledusers:any=[]
   testclass=1;
   participants:any=[]
-  durationInSeconds = 5;
+  durationInSeconds = 2000;
   displayedColumns: string[] = [ 'nom', 'prenom','speciality',
   'departement', 'add participant'];
   dataSource!: MatTableDataSource<any>;
@@ -86,7 +86,9 @@ export class DisplayProjectComponent implements OnInit {
      this.service.enrollUser(this.user,this.idp,this.user.id).subscribe(
        res=>{
          console.log("projects",res);
-         this._snackBar.open("user enrolled","Dismiss")
+         this._snackBar.open("user enrolled to","Dismiss",{
+           duration:this.durationInSeconds
+         })
      this.getParticipants()
 
        }
@@ -149,6 +151,10 @@ openDialogAssign(taskId:any,o:any) {
     }
   });
 
+  
+}
+fuc(){
+  alert("hey hey hey hey hey hey heyh eyh eyh eyh ");
   
 }
 getParticipants(){

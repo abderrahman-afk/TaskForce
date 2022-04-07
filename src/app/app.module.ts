@@ -34,6 +34,8 @@ import { DialogTaskComponent } from './components/dialog-task/dialog-task.compon
 import { DialogAssignTaskComponent } from './components/dialog-assign-task/dialog-assign-task.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -81,7 +83,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTabsModule,
     MatChipsModule,
     MatExpansionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDividerModule,
+    MatMenuModule
     
   ],
   providers: [],
